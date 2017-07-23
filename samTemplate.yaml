@@ -1,18 +1,17 @@
-
-AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-Description: Outputs the time
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Improv with Alexa skill
 Resources:
-  TimeFunction:
-    Type: AWS::Serverless::Function
+  improvWithAlexa:
+    Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: index.handler
-      Runtime: python3.5.2
-      CodeUri: ./
+      Handler: lambda_function.lambda_handler
+      Runtime: python2.7
+      CodeUri: lambda_function.py
+      Description: Improv with Alexa skill
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::196001950408:role/ImprovWithAlexa'
       Events:
-        MyTimeApi:
-          Type: Api
-          Properties:
-            Path: /TimeResource
-            Method: GET
-
+        AlexaSkillEvent:
+          Type: AlexaSkill
