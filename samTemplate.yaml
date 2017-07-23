@@ -9,9 +9,3 @@ Resources:
       Runtime: python2.7
       CodeUri: ./
       Description: Improv with Alexa skill
-      MemorySize: 128
-      Timeout: 3
-      Role: 'arn:aws:iam::196001950408:role/ImprovWithAlexa'
-      Events:
-        AlexaSkillEvent:
-          Type: AlexaSkill
