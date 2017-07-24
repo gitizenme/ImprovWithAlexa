@@ -6,4 +6,7 @@ phases:
       - pip install flask
       - pip install flask-ask
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket ws.chavez.improvwithalexa --output-template-file NewSamTemplate.yaml
+artifacts:
+  files:
+    - NewSamTemplate.yaml
 
