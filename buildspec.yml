@@ -9,4 +9,5 @@ phases:
 artifacts:
   files:
     - NewSamTemplate.yaml
+    discard-paths: yes
 
