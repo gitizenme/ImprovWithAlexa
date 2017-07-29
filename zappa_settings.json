@@ -1,0 +1,8 @@
+{
+  "dev": {
+    "app_function": "improvwithalexa_function.app",
+    "aws_region": "us-east-1",
+    "profile_name": "default",
+    "s3_bucket": "zappa-461sdkrs9"
+  }
+}
