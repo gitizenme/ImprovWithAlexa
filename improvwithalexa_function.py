@@ -9,8 +9,9 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 # Create a new instance of a ChatBot
 chatbot = ChatBot(
-    "Terminal",
-    trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
+    "Improv",
+    read_only=False,
+    trainer='chatterbot.trainers.ListTrainer',
     storage_adapter="chatterbot.storage.JsonFileStorageAdapter",
     logic_adapters=[
         {
@@ -22,8 +23,17 @@ chatbot = ChatBot(
             'default_response': 'I am sorry, but I do not understand.'
         }
     ],
-    database="./improv.json"
+    database="/tmp/improv.json"
 )
+
+chatbot.train([
+    "How are you?",
+    "I am good.",
+    "That is good to hear.",
+    "Thank you",
+    "You are welcome.",
+])
+
 
 
 @ask.launch
