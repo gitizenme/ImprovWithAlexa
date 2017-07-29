@@ -1,5 +1,4 @@
 import logging
-from random import randint
 from flask import Flask, render_template
 from flask_ask import Ask, statement, question, session
 from chatterbot import ChatBot
@@ -12,7 +11,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 chatbot = ChatBot(
     "Terminal",
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
-    storage_adapter="chatterbot.storage.SQLStorageAdapter",
+    storage_adapter="chatterbot.storage.JsonFileStorageAdapter",
     logic_adapters=[
         {
             'import_path': 'chatterbot.logic.BestMatch'
@@ -23,7 +22,7 @@ chatbot = ChatBot(
             'default_response': 'I am sorry, but I do not understand.'
         }
     ],
-    database="./improv"
+    database="./improv.json"
 )
 
 
