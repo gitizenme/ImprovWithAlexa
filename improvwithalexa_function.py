@@ -19,7 +19,7 @@ chatbot = ChatBot(
         },
         {
             'import_path': 'chatterbot.logic.LowConfidenceAdapter',
-            'threshold': 0.65,
+            'threshold': 0.50,
             'default_response': 'I am sorry, but I do not understand.'
         }
     ],
@@ -27,11 +27,48 @@ chatbot = ChatBot(
 )
 
 chatbot.train([
-    "How are you?",
-    "I am good.",
-    "That is good to hear.",
-    "Thank you",
-    "You are welcome.",
+    "Hi, How is it going?",
+    "Good",
+    "Hi, How is it going?",
+    "Fine",
+    "Hi, How is it going?",
+    "Okay",
+    "Hi, How is it going?",
+    "Great",
+    "Hi, How is it going?",
+    "Could be better.",
+    "Hi, How is it going?",
+    "Not so great.",
+    "How are you doing?",
+    "Good.",
+    "How are you doing?",
+    "Very well, thanks.",
+    "How are you doing?",
+    "Fine, and you?",
+    "Nice to meet you.",
+    "Thank you.",
+    "How do you do?",
+    "I'm doing well.",
+    "How do you do?",
+    "I'm doing well. How are you?",
+    "Hi, nice to meet you.",
+    "Thank you. You too.",
+    "It is a pleasure to meet you.",
+    "Thank you. You too.",
+    "Top of the morning to you!",
+    "Thank you kindly.",
+    "Top of the morning to you!",
+    "And the rest of the day to you.",
+    "What's up?",
+    "Not much.",
+    "What's up?",
+    "Not too much.",
+    "What's up?",
+    "Not much, how about you?",
+    "What's up?",
+    "Nothing much.",
+    "What's up?",
+    "The sky's up but I'm fine thanks. What about you?",
 ])
 
 
@@ -60,10 +97,10 @@ def new_game():
 #     return statement(msg)
 
 
-@ask.intent("ChatIntent")
-def chat(questions):
-    print("questions {}".format(questions))
-    response = chatbot.get_response(questions)
+@ask.intent("ChatIntent", mapping={'chat_question': 'question'})
+def chat(chat_question):
+    print("question {}".format(chat_question))
+    response = chatbot.get_response(chat_question)
     print("response {}".format(response))
     return question(response.text)
 
@@ -75,4 +112,4 @@ def name(first_name):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
