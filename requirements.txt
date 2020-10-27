@@ -13,7 +13,7 @@ ChatterBot==0.7.5
 chatterbot-corpus==1.0.0
 click==6.7
 colorama==0.3.7
-cryptography==2.0.2
+cryptography==3.2
 docutils==0.13.1
 durationpy==0.4
 Flask==0.12.1
